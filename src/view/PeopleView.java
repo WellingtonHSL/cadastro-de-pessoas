@@ -1,15 +1,17 @@
 package view;
 
+import model.People;
+
 public class PeopleView {
 
-    public void printPeopleDetails(String name, String CPF, int phoneNumber, String address, String email){
+    public void printPeopleDetails(People people){
 
         System.out.println("Dados Pessoais: "  );
-        System.out.println("Nome: " + name );
-        System.out.println("CPF: " + CPF );
-        System.out.println("Número de Telefone: " + phoneNumber );
-        System.out.println("Endereço: " + address );
-        System.out.println("E-mail: " + email );
+        System.out.println("Nome: " + people.getName() );
+        System.out.println("CPF: " + people.getCPF() );
+        System.out.println("Número de Telefone: " + people.getPhoneNumber() );
+        System.out.println("Endereço: " + people.getAddress() );
+        System.out.println("E-mail: " + people.getEmail() );
 
     }
     public void noPeopleFound(){
