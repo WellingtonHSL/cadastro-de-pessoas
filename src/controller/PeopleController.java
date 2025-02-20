@@ -27,5 +27,4 @@ public class PeopleController {
     public void setView(PeopleView view){
         this.view = view;
     }
-
 }
