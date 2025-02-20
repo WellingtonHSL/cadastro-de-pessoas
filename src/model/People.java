@@ -21,6 +21,9 @@ public class People {
         this.email = email;
     }
 
+    public People () {
+    }
+
     public String getName() {
         return name;
     }
