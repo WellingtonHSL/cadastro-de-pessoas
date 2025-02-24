@@ -1,6 +1,6 @@
 # Cadastro de Pessoas
 
-Cadastro de Pessoas é um trabalho desenvolvido durante uma aula sobre Design Patterns nadisciplina de Desenvolvimento Baseado em Padrões e Frameworks. O sistema, desenvolvido em Java, permite o cadastro de pessoas, a busca por nome e a listagem de todos os registros armazenados.
+Cadastro de Pessoas é um trabalho desenvolvido durante a aula sobre Design Patterns na disciplina de Desenvolvimento Baseado em Padrões e Frameworks. O sistema, desenvolvido em Java, permite o cadastro de pessoas, a busca por nome e a listagem de todos os registros armazenados.
 
 ## Tecnologias Utilizadas
 - **Java** - Linguagem principal utilizada no desenvolvimento do sistema, aplicando os conceitos da arquitetura MVC.
