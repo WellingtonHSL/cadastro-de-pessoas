@@ -2,90 +2,59 @@ package view;
 
 import model.People;
 
-StructuringView
-import javax.naming.Name;
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class PeopleView {
+    Scanner scanner = new Scanner(System.in);
 
-    public static void menu() {
-        System.out.println("1 Consulta de Cadastro pelo Nome");
-        System.out.println("2 Cadastro Nova Pessoa");
-        System.out.println("3 Imprimir Pessoas Cadastradas");
-        System.out.println("4 Sair");
+    public void menu() {
+        System.out.println("\n===== MENU =====");
+        System.out.println("1 - Consultar cadastro pelo Nome.");
+        System.out.println("2 - Cadastrar nova pessoa.");
+        System.out.println("3 - Listar todas as pessoas Cadastradas.");
+        System.out.println("0 - Sair.");
+        System.out.print("Escolha uma opção: ");
     }
 
-    public static int opcao() {
-        Scanner scanner = new Scanner(System.in);
-        int opcao;
-        do {
-            System.out.println("Digite a opcao desejada:");
-            try {
-                opcao = Integer.parseInt(scanner.nextLine());
-                if (opcao >= 1 && opcao <= 4) {
-                    return opcao;
-                } else {
-                    System.out.println("Opção Invalida! Por favor escolha uma opção entre 1 e 4.");
-                }
-            } catch (NumberFormatException e) {
-                System.out.println("Opção Invalida! Por favor escolha uma opção entre 1 e 4.");
-            }
-        } while (true);
-    }
-
-    public void peopleRegister(String name, String CPF, int phoneNumber, String address, String email){
-
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Digite o seu nome");
-        name = scanner.nextLine();
+    public People peopleRegister(){
+        System.out.println("\nDigite o seu nome");
+        String name = scanner.nextLine();
 
         System.out.println("Digite o seu CPF");
-        CPF = scanner.nextLine();
+        String CPF = scanner.nextLine();
 
         System.out.println("Digite o seu número de celular");
-        phoneNumber = scanner.nextInt();
+        String phoneNumber = scanner.nextLine();
 
         System.out.println("Digite o seu endereço:");
-        address = scanner.nextLine();
+        String address = scanner.nextLine();
 
         System.out.println("Diigite o seu e-mail");
-        email = scanner.nextLine();
+        String email = scanner.nextLine();
 
+        return new People(name, CPF, phoneNumber, address, email);
     }
-    public void printPeopleDetails(ArrayList<People> ListPeople, String nameToSearch) {
-
-        for (People people : ListPeople) {
-            System.out.println("Dados Pessoais: ");
+    public void printPeopleDetails(People people) {
+            System.out.println("\n----- Dados Pessoais -----");
             System.out.println("Nome: " + people.getName());
             System.out.println("CPF: " + people.getCPF());
             System.out.println("Número de Telefone: " + people.getPhoneNumber());
             System.out.println("Endereço: " + people.getAddress());
             System.out.println("E-mail: " + people.getEmail());
+    }
 
+    public void printAllPeople(List<People> peopleList) {
+        if(peopleList.isEmpty()) {
+            System.out.println("\nNenhum registro encontrado!");
+        } else {
+            for (People people : peopleList) {
+                printPeopleDetails(people);
+            }
         }
-
-public class PeopleView {
-
-    public void printPeopleDetails(People people){
-
-        System.out.println("Dados Pessoais: "  );
-        System.out.println("Nome: " + people.getName() );
-        System.out.println("CPF: " + people.getCPF() );
-        System.out.println("Número de Telefone: " + people.getPhoneNumber() );
-        System.out.println("Endereço: " + people.getAddress() );
-        System.out.println("E-mail: " + people.getEmail() );
-
     }
 
-    public String nameSearch(ArrayList<People> ListPeople, String nameToSearch){
-      for (People people : ListPeople){
-          if (people.getName().equals(nameToSearch)){
-              return people.getName();
-          }
-      }
-        return nameToSearch;
+    public void printMessage(String message) {
+        System.out.println(message);
     }
-
 }

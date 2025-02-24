@@ -1,7 +1,8 @@
-import view.PeopleView;
+import controller.PeopleController;
 
 public class MVCPattern {
     public static void main(String[] args) {
-        PeopleView.opcao();
+        PeopleController start = new PeopleController();
+        start.options();
     }
 }
