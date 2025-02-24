@@ -3,14 +3,14 @@ package model;
 public class People {
     private String name;
     private String CPF;
-    private int phoneNumber;
+    private String phoneNumber;
     private String address;
     private String email;
 
     public People (
             String name,
             String CPF,
-            int phoneNumber,
+            String phoneNumber,
             String address,
             String email
     ) {
@@ -19,9 +19,6 @@ public class People {
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.email = email;
-    }
-
-    public People () {
     }
 
     public String getName() {
@@ -40,11 +37,11 @@ public class People {
         this.CPF = CPF;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

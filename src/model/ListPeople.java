@@ -1,23 +1,12 @@
 package model;
 
-import view.PeopleView;
-
 import java.util.ArrayList;
 
 public class ListPeople {
-    ArrayList<People> list = new ArrayList<People>();
-    private PeopleView view;
-
-    public ArrayList<People> getList() {
-        return list;
-    }
-
-    public void setList(ArrayList<People> list) {
-        this.list = list;
-    }
+    private ArrayList<People> list = new ArrayList<>();
 
     public void addPeople(People people) {
-        this.list.add(people);
+        list.add(people);
     }
 
     public People getPeopleByName(String name) {
@@ -29,13 +18,7 @@ public class ListPeople {
         return null;
     }
 
-    public void getAllPeople() {
-        if(list.isEmpty()) {
-            view.noPeopleFound();
-        } else {
-            for (People people : list) {
-                view.printPeopleDetails(people);
-            }
-        }
+    public ArrayList<People> getAllPeople() {
+        return list;
     }
 }
