@@ -1,6 +1,7 @@
 package view;
 
 import model.People;
+import model.verification.PeopleVerification;
 
 import java.util.List;
 import java.util.Scanner;
@@ -18,20 +19,47 @@ public class PeopleView {
     }
 
     public People peopleRegister(){
+        String name, CPF, phoneNumber, address, email;
+
         System.out.println("\nDigite o seu nome");
-        String name = scanner.nextLine();
+        name = scanner.nextLine();
 
-        System.out.println("Digite o seu CPF");
-        String CPF = scanner.nextLine();
 
-        System.out.println("Digite o seu número de celular");
-        String phoneNumber = scanner.nextLine();
+        while (true) {
+            System.out.println("Digite o seu CPF");
+            CPF = scanner.nextLine();
+
+            if (PeopleVerification.isValidCPF(CPF)) {
+                break;
+            } else {
+                System.out.println("CPF inválido! Tente novamente.");
+            }
+        }
+
+        while (true) {
+            System.out.println("Digite o seu número de celular");
+            phoneNumber = scanner.nextLine();
+
+            if (PeopleVerification.isValidPhoneNumber(phoneNumber)) {
+                break;
+            } else {
+                System.out.println("Número de celular inválido! Tente novamente.");
+            }
+        }
 
         System.out.println("Digite o seu endereço:");
-        String address = scanner.nextLine();
+        address = scanner.nextLine();
 
-        System.out.println("Diigite o seu e-mail");
-        String email = scanner.nextLine();
+        while (true) {
+            System.out.println("Digite o seu e-mail");
+            email = scanner.nextLine();
+
+            if (PeopleVerification.isValidEmail(email)) {
+                break;
+            } else {
+                System.out.println("E-mail inválido! Tente novamente.");
+            }
+        }
 
         return new People(name, CPF, phoneNumber, address, email);
     }
